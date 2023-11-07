@@ -1,4 +1,4 @@
-package utils;
+package core;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,7 +23,7 @@ public class Utils {
         return properties;
     }
 
-    public static String getUIMappingByKey(String key) {
+    public static String getMappingByKey(String key) {
         String value = loadProperties(MAP).getProperty(key);
         return value != null ? value : key;
     }

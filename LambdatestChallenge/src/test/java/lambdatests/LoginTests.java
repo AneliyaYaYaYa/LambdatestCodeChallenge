@@ -1,3 +1,7 @@
+package lambdatests;
+
+import core.BaseTest;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -12,6 +16,7 @@ public class LoginTests extends BaseTest {
         loginPage.fillInPassword("123456");
         loginPage.clickLoginButton();
         loginPage.verifyLoginSuccess();
+        loginPage.logout();
     }
 
     @ParameterizedTest

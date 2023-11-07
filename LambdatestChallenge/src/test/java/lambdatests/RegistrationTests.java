@@ -1,3 +1,6 @@
+package lambdatests;
+
+import core.BaseTest;
 import org.junit.jupiter.api.Test;
 
 public class RegistrationTests extends BaseTest {
@@ -12,7 +15,8 @@ public class RegistrationTests extends BaseTest {
         registrationPage.fillInPassword();
         registrationPage.agreeToPrivacyPolicy();
         registrationPage.clickContinue();
-        registrationPage.verifyRegistrySuccess();
+        registrationPage.verifyRegistrySuccessPageNavigated();
+        registrationPage.verifySuccessMessage();
     }
 
 }

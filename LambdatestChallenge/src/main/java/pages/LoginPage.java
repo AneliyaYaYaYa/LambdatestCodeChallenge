@@ -5,11 +5,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import static utils.Utils.getUIMappingByKey;
+import static core.Utils.LOGGER;
+import static core.Utils.getMappingByKey;
 
 public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver) {
-        super(driver, getUIMappingByKey("loginPage"));
+        super(driver, getMappingByKey("loginPage"));
     }
 
     public void fillInEmail(String email){
@@ -27,16 +28,20 @@ public class LoginPage extends BasePage {
     public void verifyLoginSuccess() {
         String expectedUrl="https://ecommerce-playground.lambdatest.io/index.php?route=account/account";
         String actualUrl=driver.getCurrentUrl();
-        Assertions.assertEquals(actualUrl, expectedUrl, "Login was not successful.");
+        Assertions.assertEquals(actualUrl, expectedUrl, "Login was not successful although valid credentials provided..");
+        LOGGER.info("User was successfully logged in.");
     }
 
     public void verifyLoginFailed() {
-        String expectedUrl=getUIMappingByKey("loginPage");
+        String expectedUrl= getMappingByKey("loginPage");
         String actualUrl=driver.getCurrentUrl();
-        Assertions.assertEquals(actualUrl, expectedUrl, "Login was successful.");
+        Assertions.assertEquals(actualUrl, expectedUrl, "Login was successful although incorrect credentials provided.");
+        LOGGER.info("User was not logged in.");
     }
 
-    public void validateErrorMessage(){
-
+    public void logout(){
+        WebElement logoutButton = driver.findElement(By.xpath("(//a[contains(@href, 'logout')])[2]"));
+        logoutButton.click();
     }
+
 }

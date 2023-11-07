@@ -8,14 +8,16 @@ import org.openqa.selenium.WebElement;
 
 import java.util.Random;
 
-import static utils.Utils.getUIMappingByKey;
+import static java.lang.String.format;
+import static core.Utils.LOGGER;
+import static core.Utils.getMappingByKey;
 
 public class RegistrationPage extends BasePage {
     protected static Faker faker;
     protected static Random rnd;
 
     public RegistrationPage(WebDriver driver) {
-        super(driver, getUIMappingByKey("registerPage"));
+        super(driver, getMappingByKey("registerPage"));
         faker = new Faker();
         rnd = new Random();
     }
@@ -60,10 +62,17 @@ public class RegistrationPage extends BasePage {
         WebElement continueButton = driver.findElement(By.xpath("//input[@type='submit']"));
         continueButton.click();
     }
-    public void verifyRegistrySuccess(){
-        String expectedUrl="https://ecommerce-playground.lambdatest.io/index.php?route=account/success";
+    public void verifyRegistrySuccessPageNavigated(){
+        String expectedUrl= getMappingByKey("registerPageSuccess");
         String actualUrl=driver.getCurrentUrl();
-        Assertions.assertEquals(actualUrl, expectedUrl, "Registration was not successful.");
+        Assertions.assertEquals(actualUrl, expectedUrl, "Registration was not successful although valid credentials provided.");
+        LOGGER.info("Registration page successfully navigated.");
+    }
+    public void verifySuccessMessage(){
+        String successMessage = " Your Account Has Been Created!";
+        WebElement successTitle = driver.findElement(By.xpath("//div/h1[contains(@class, 'page-title')]"));
+        String value = successTitle.getAttribute("innerText");
+        Assertions.assertEquals(successMessage, value, "Registration success message doesn't correspond.");
     }
 
 }
