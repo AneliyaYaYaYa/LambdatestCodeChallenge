@@ -4,10 +4,7 @@ import enums.BrowserTypes;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
-import pages.HomePage;
-import pages.LoginPage;
-import pages.RegistrationPage;
-import pages.SearchPage;
+import pages.*;
 
 import static core.Utils.getMappingByKey;
 import static core.Utils.LOGGER;
@@ -18,6 +15,8 @@ public class BaseTest {
     public static LoginPage loginPage;
     public static HomePage homePage;
     public static SearchPage searchPage;
+    public static CheckoutGeneralPage checkoutPage;
+    public static CheckoutConfirmPage checkoutConfirmPage;
 
     @BeforeAll
     public static void setUp() {
@@ -31,6 +30,8 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
         homePage = new HomePage(driver);
         searchPage = new SearchPage(driver);
+        checkoutPage = new CheckoutGeneralPage(driver);
+        checkoutConfirmPage = new CheckoutConfirmPage(driver);
         //manage timeouts
     }
 
@@ -39,5 +40,17 @@ public class BaseTest {
         System.gc();
         driver.close();
         LOGGER.info("Driver is shutting down");
+    }
+
+    public void addItemToCart(){
+        String product = "Nikon D300";
+        homePage.navigateToPage();
+        homePage.searchForItem(product);
+        searchPage.addItemToCart(product);
+    }
+
+    public void openCheckout(){
+        searchPage.openCart();
+        searchPage.checkout();
     }
 }
