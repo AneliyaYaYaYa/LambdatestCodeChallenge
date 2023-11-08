@@ -1,11 +1,10 @@
 # LambdatestCodeChallenge
 
 ## Table of Contents
-1. [Overview](#overview)
-2. [Test automation strategy](#test_automation_strategy)
+1. [Test automation strategy](#test_automation_strategy)
+2. [Automation backlog](#Automation_backlog)
 3. [Automation backlog](#Automation_backlog)
-4. [Automation backlog](#Automation_backlog)
-5. [Lambdatest Project](#LambdatestProject)
+4. [Lambdatest Project](#LambdatestProject)
 
 ---
 
