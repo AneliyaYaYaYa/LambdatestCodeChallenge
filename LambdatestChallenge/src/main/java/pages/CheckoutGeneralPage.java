@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import static core.Utils.LOGGER;
 import static core.Utils.getMappingByKey;
 import static java.lang.String.format;
 import static pages.RegistrationPage.faker;
@@ -17,6 +18,7 @@ public class CheckoutGeneralPage extends BasePage{
     public void selectUserType(String user){
         WebElement userType = driver.findElement(By.xpath(format("//div[contains(@class, 'custom-control') and descendant::label[contains(@for, 'guest')]]", user)));
         userType.click();
+        LOGGER.info("User type selected.");
     }
 
     public void fillInPersonalDetails() {
@@ -25,6 +27,7 @@ public class CheckoutGeneralPage extends BasePage{
         registrationPage.fillInLastName();
         registrationPage.fillInEmail();
         registrationPage.fillInTelephone();
+        LOGGER.info("Personal details added.");
     }
 
     public void fillInBillingDetails() {
@@ -39,24 +42,27 @@ public class CheckoutGeneralPage extends BasePage{
         String postCode = faker.address().zipCode();
         WebElement postCodeInput = driver.findElement(By.name("postcode"));
         postCodeInput.sendKeys(postCode);
-
+        LOGGER.info("Billing details added.");
     }
     public void agreeToPrivacyPolicy() {
         WebElement agreeCheckbox = driver.findElement(By.xpath("//label[@for='input-agree']"));
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].scrollIntoView(true);", agreeCheckbox);
         agreeCheckbox.click();
+
     }
 
     public void clickContinue() {
         WebElement continueButton = driver.findElement(By.id("button-save"));
         continueButton.click();
+
     }
 
     public void fillInNames(){
         RegistrationPage registrationPage = new RegistrationPage(driver);
         registrationPage.fillInFirstName();
         registrationPage.fillInLastName();
+
     }
 
 

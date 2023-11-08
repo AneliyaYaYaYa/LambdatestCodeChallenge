@@ -34,6 +34,7 @@ public class SearchPage extends BasePage {
         result.click();
         WebElement addToCartButton = driver.findElement(By.xpath("(//button[@title='Add to Cart'])[2]"));
         addToCartButton.click();
+
     }
 
 
@@ -42,7 +43,7 @@ public class SearchPage extends BasePage {
         WebElement cartBadge = driver.findElement(By.xpath("(//span[contains(@class, 'cart-item-total')])[1]"));
         String value = cartBadge.getAttribute("innerText");
         Assertions.assertEquals("1", value, "Cart badge is empty.");
-
+        LOGGER.info("Card's badge amount correspondes with item/s added.");
     }
 
     public void verifyItemAddedToCart(String item) {
@@ -50,6 +51,7 @@ public class SearchPage extends BasePage {
         WebElement cartItem = driver.findElement(By.xpath("//td/a[@title]"));
         String value = cartItem.getAttribute("innerText");
         Assertions.assertEquals(item, value, "Item was not added to cart.");
+        LOGGER.info("Item was successfully added to cart.");
     }
 
     public void openCart(){

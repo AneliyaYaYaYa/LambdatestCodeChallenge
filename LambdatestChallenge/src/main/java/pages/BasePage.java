@@ -17,12 +17,14 @@ public  class BasePage {
 
     public void navigateToPage(){
         driver.get(url);
+        LOGGER.info("Page was successfully navigated.");
     }
 
     public void verifyHeader(String message) {
         WebElement successTitle = driver.findElement(By.xpath("//div/h1[contains(@class, 'page-title')]"));
         String value = successTitle.getAttribute("innerText");
         Assertions.assertTrue(value.contains(message), "Header title not as expected.");
+        LOGGER.info("Header verified successfully.");
     }
     public void verifyPageNavigated(String expectedUrl) {
         String actualUrl=driver.getCurrentUrl();

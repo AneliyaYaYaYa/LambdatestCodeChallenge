@@ -15,14 +15,17 @@ public class LoginPage extends BasePage {
     public void fillInEmail(String email){
         WebElement emailInput = driver.findElement(By.name("email"));
         emailInput.sendKeys(email);
+
     }
     public void fillInPassword(String password) {
         WebElement passwordInput = driver.findElement(By.name("password"));
         passwordInput.sendKeys(password);
+
     }
     public void clickLoginButton() {
         WebElement loginButton = driver.findElement(By.xpath("//input[@value='Login']"));
         loginButton.click();
+
     }
 
     public void verifyLoginFailed() {
@@ -46,6 +49,7 @@ public class LoginPage extends BasePage {
     public void logout(){
         WebElement logoutButton = driver.findElement(By.xpath("(//a[contains(@href, 'logout')])[2]"));
         logoutButton.click();
+        LOGGER.info("Logout button clicked.");
     }
 
 }
