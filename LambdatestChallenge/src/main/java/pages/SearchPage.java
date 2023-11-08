@@ -17,7 +17,7 @@ public class SearchPage extends BasePage {
     public void verifySearchPageNavigated(String item) {
         WebElement searchResultTitle = driver.findElement(By.xpath("//div[contains(@class, 'content-title')]/h1"));
         String value = searchResultTitle.getAttribute("innerText");
-        Assertions.assertEquals(format("Search - "+item), value, "Search page was not navigated.");
+        Assertions.assertEquals(format("Search - " + item), value, "Search page was not navigated.");
         LOGGER.info("Search page navigated successfully.");
     }
 
@@ -29,30 +29,42 @@ public class SearchPage extends BasePage {
         LOGGER.info("Search result corresponds with search item.");
     }
 
-    public void addItemToCart(String item){
+    public void addItemToCart(String item) {
         WebElement result = driver.findElement(By.xpath(String.format("//h4/a[text()='%s']", item)));
         result.click();
         WebElement addToCartButton = driver.findElement(By.xpath("(//button[@title='Add to Cart'])[2]"));
         addToCartButton.click();
     }
-    
+
 
     public void verifyCartBadge() {
-       // WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-       // wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[contains(@class, 'cart-item-total')])[1]")));
         navigateToPage();
         WebElement cartBadge = driver.findElement(By.xpath("(//span[contains(@class, 'cart-item-total')])[1]"));
         String value = cartBadge.getAttribute("innerText");
-        Assertions.assertEquals("1", value, "Search page was not navigated.");
+        Assertions.assertEquals("1", value, "Cart badge is empty.");
 
     }
 
     public void verifyItemAddedToCart(String item) {
-        navigateToPage();
-        WebElement clickOnCart = driver.findElement(By.xpath("(//div[@class='cart-icon'])[1]"));
-        clickOnCart.click();
+        openCart();
         WebElement cartItem = driver.findElement(By.xpath("//td/a[@title]"));
         String value = cartItem.getAttribute("innerText");
         Assertions.assertEquals(item, value, "Item was not added to cart.");
     }
+
+    public void openCart(){
+        navigateToPage();
+        WebElement clickOnCart = driver.findElement(By.xpath("(//div[@class='cart-icon'])[1]"));
+        clickOnCart.click();
+    }
+    public void editCart(){
+        WebElement editButton = driver.findElement(By.xpath("//a[contains(@href, 'checkout/cart') and @role='button']"));
+        editButton.click();
+    }
+    public void checkout() {
+        WebElement checkoutButton = driver.findElement(By.xpath("//a[contains(@href, 'checkout/checkout')]"));
+        checkoutButton.click();
+    }
+
+
 }

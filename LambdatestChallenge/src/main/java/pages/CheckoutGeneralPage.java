@@ -1,12 +1,10 @@
 package pages;
 
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import static core.Utils.LOGGER;
 import static core.Utils.getMappingByKey;
 import static java.lang.String.format;
 import static pages.RegistrationPage.faker;
@@ -53,6 +51,12 @@ public class CheckoutGeneralPage extends BasePage{
     public void clickContinue() {
         WebElement continueButton = driver.findElement(By.id("button-save"));
         continueButton.click();
+    }
+
+    public void fillInNames(){
+        RegistrationPage registrationPage = new RegistrationPage(driver);
+        registrationPage.fillInFirstName();
+        registrationPage.fillInLastName();
     }
 
 

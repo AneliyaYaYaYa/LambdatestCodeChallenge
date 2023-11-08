@@ -3,9 +3,11 @@ package lambdatests;
 import core.BaseTest;
 import org.junit.jupiter.api.Test;
 
+import static core.Utils.getMappingByKey;
+
 public class ShoppingCartTests extends BaseTest {
 
-    public String product = "iPod Nano";
+    public String product = getMappingByKey("product");
 
     @Test
     public void productAddedToCart_when_addToCartClicked(){
@@ -16,4 +18,12 @@ public class ShoppingCartTests extends BaseTest {
         searchPage.verifyItemAddedToCart(product);
     }
 
+    @Test
+    public void removeItemFromCart_when_removeClicked(){
+        addItemToCart();
+        searchPage.openCart();
+        searchPage.editCart();
+        shoppingCartPage.removeItem();
+        shoppingCartPage.verifyHeader(getMappingByKey("shoppingCart.emptyHeader"));
+    }
 }

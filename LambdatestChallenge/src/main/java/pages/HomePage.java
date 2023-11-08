@@ -19,5 +19,4 @@ public class HomePage extends BasePage {
         searchButton.click();
     }
 
-
 }

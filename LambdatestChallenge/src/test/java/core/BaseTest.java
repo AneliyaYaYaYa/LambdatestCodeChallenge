@@ -15,6 +15,7 @@ public class BaseTest {
     public static LoginPage loginPage;
     public static HomePage homePage;
     public static SearchPage searchPage;
+    public static ShoppingCartPage shoppingCartPage;
     public static CheckoutGeneralPage checkoutPage;
     public static CheckoutConfirmPage checkoutConfirmPage;
 
@@ -32,6 +33,7 @@ public class BaseTest {
         searchPage = new SearchPage(driver);
         checkoutPage = new CheckoutGeneralPage(driver);
         checkoutConfirmPage = new CheckoutConfirmPage(driver);
+        shoppingCartPage = new ShoppingCartPage(driver);
         //manage timeouts
     }
 
@@ -49,8 +51,15 @@ public class BaseTest {
         searchPage.addItemToCart(product);
     }
 
-    public void openCheckout(){
+    public void openCheckoutPage(){
         searchPage.openCart();
         searchPage.checkout();
+    }
+
+    public  void login(){
+        loginPage.navigateToPage();
+        loginPage.fillInEmail(getMappingByKey("validEmail"));
+        loginPage.fillInPassword(getMappingByKey("validPassword"));
+        loginPage.clickLoginButton();
     }
 }

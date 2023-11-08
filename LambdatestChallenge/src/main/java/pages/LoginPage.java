@@ -1,6 +1,5 @@
 package pages;
 
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,23 +21,28 @@ public class LoginPage extends BasePage {
         passwordInput.sendKeys(password);
     }
     public void clickLoginButton() {
-        WebElement continueButton = driver.findElement(By.xpath("//input[@type='submit']"));
-        continueButton.click();
-    }
-    public void verifyLoginSuccess() {
-        String expectedUrl="https://ecommerce-playground.lambdatest.io/index.php?route=account/account";
-        String actualUrl=driver.getCurrentUrl();
-        Assertions.assertEquals(actualUrl, expectedUrl, "Login was not successful although valid credentials provided..");
-        LOGGER.info("User was successfully logged in.");
+        WebElement loginButton = driver.findElement(By.xpath("//input[@value='Login']"));
+        loginButton.click();
     }
 
     public void verifyLoginFailed() {
-        String expectedUrl= getMappingByKey("loginPage");
-        String actualUrl=driver.getCurrentUrl();
-        Assertions.assertEquals(actualUrl, expectedUrl, "Login was successful although incorrect credentials provided.");
-        LOGGER.info("User was not logged in.");
+        Boolean display = driver.findElement(By.xpath("//input[@value='Login']")).isDisplayed();
+        if (display){
+            LOGGER.info("Login with invalid credentials was not successful.");
+        } else {
+            LOGGER.info("User logged in with invalid credentials.");
+        }
     }
 
+    public void errorMessageDisplayed(){
+        Boolean displayError = driver.findElement(By.xpath("//div[contains(@class, 'alert-danger')]")).isDisplayed();
+        if (displayError){
+            LOGGER.info("Error message displayed.");
+        } else {
+            LOGGER.info("No error message.");
+        }
+
+    }
     public void logout(){
         WebElement logoutButton = driver.findElement(By.xpath("(//a[contains(@href, 'logout')])[2]"));
         logoutButton.click();

@@ -3,6 +3,8 @@ package lambdatests;
 import core.BaseTest;
 import org.junit.jupiter.api.Test;
 
+import static core.Utils.getMappingByKey;
+
 public class RegistrationTests extends BaseTest {
 
     @Test
@@ -15,8 +17,8 @@ public class RegistrationTests extends BaseTest {
         registrationPage.fillInPassword();
         registrationPage.agreeToPrivacyPolicy();
         registrationPage.clickContinue();
-        registrationPage.verifyRegistrySuccessPageNavigated();
-        registrationPage.verifySuccessMessage();
+        registrationPage.verifyPageNavigated(getMappingByKey("registerPageSuccess"));
+        registrationPage.verifyHeader(getMappingByKey("register.successHeader"));
     }
 
 }

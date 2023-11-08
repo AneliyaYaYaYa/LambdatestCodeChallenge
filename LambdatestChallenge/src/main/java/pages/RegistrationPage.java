@@ -1,15 +1,12 @@
 package pages;
 
 import com.github.javafaker.Faker;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.Random;
 
-import static java.lang.String.format;
-import static core.Utils.LOGGER;
 import static core.Utils.getMappingByKey;
 
 public class RegistrationPage extends BasePage {
@@ -61,18 +58,6 @@ public class RegistrationPage extends BasePage {
     public void clickContinue() {
         WebElement continueButton = driver.findElement(By.xpath("//input[@type='submit']"));
         continueButton.click();
-    }
-    public void verifyRegistrySuccessPageNavigated(){
-        String expectedUrl= getMappingByKey("registerPageSuccess");
-        String actualUrl=driver.getCurrentUrl();
-        Assertions.assertEquals(actualUrl, expectedUrl, "Registration was not successful although valid credentials provided.");
-        LOGGER.info("Registration page successfully navigated.");
-    }
-    public void verifySuccessMessage(){
-        String successMessage = " Your Account Has Been Created!";
-        WebElement successTitle = driver.findElement(By.xpath("//div/h1[contains(@class, 'page-title')]"));
-        String value = successTitle.getAttribute("innerText");
-        Assertions.assertEquals(successMessage, value, "Registration success message doesn't correspond.");
     }
 
 }

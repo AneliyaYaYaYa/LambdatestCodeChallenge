@@ -15,4 +15,5 @@ public class SearchTests extends BaseTest {
         searchPage.verifySearchResults(item);
     }
 
+
 }

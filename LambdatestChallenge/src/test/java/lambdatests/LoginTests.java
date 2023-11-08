@@ -1,10 +1,11 @@
 package lambdatests;
 
 import core.BaseTest;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+
+import static core.Utils.getMappingByKey;
 
 public class LoginTests extends BaseTest {
 
@@ -12,10 +13,10 @@ public class LoginTests extends BaseTest {
     @Test
     public void login_when_validCredentialsProvided() {
         loginPage.navigateToPage();
-        loginPage.fillInEmail("a@abg.com");
-        loginPage.fillInPassword("123456");
+        loginPage.fillInEmail(getMappingByKey("validEmail"));
+        loginPage.fillInPassword(getMappingByKey("validPassword"));
         loginPage.clickLoginButton();
-        loginPage.verifyLoginSuccess();
+        loginPage.verifyPageNavigated(getMappingByKey("accountPage"));
         loginPage.logout();
     }
 
@@ -27,5 +28,6 @@ public class LoginTests extends BaseTest {
         loginPage.fillInPassword(password);
         loginPage.clickLoginButton();
         loginPage.verifyLoginFailed();
+        loginPage.errorMessageDisplayed();
     }
 }
