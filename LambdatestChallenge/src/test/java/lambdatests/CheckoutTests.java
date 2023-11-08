@@ -31,8 +31,6 @@ public class CheckoutTests extends BaseTest {
         login();
         addItemToCart();
         openCheckoutPage();
-        checkoutPage.fillInNames();
-        checkoutPage.fillInBillingDetails();
         checkoutPage.agreeToPrivacyPolicy();
         checkoutPage.clickContinue();
         checkoutPage.verifyPageNavigated(getMappingByKey("checkoutConfirmPage"));

@@ -1,64 +1,11 @@
-2023-11-08 15:43:09,585 INFO  [main] Initializing WebDriver
-2023-11-08 15:43:12,205 INFO  [main] Home Page navigated
-2023-11-08 15:43:13,755 INFO  [main] Page was successfully navigated.
-2023-11-08 15:43:15,708 INFO  [main] Page was successfully navigated.
-2023-11-08 15:43:17,164 INFO  [main] Logout button clicked.
-2023-11-08 15:43:17,940 INFO  [main] Page was successfully navigated.
-2023-11-08 15:43:18,932 INFO  [main] Login with invalid credentials was not successful.
-2023-11-08 15:43:18,967 INFO  [main] Error message displayed.
-2023-11-08 15:43:19,492 INFO  [main] Page was successfully navigated.
-2023-11-08 15:43:20,252 INFO  [main] Login with invalid credentials was not successful.
-2023-11-08 15:43:20,284 INFO  [main] Error message displayed.
-2023-11-08 15:43:20,819 INFO  [main] Page was successfully navigated.
-2023-11-08 15:43:21,521 INFO  [main] Login with invalid credentials was not successful.
-2023-11-08 15:43:21,555 INFO  [main] Error message displayed.
-2023-11-08 15:43:22,064 INFO  [main] Page was successfully navigated.
-2023-11-08 15:43:23,836 INFO  [main] Login with invalid credentials was not successful.
-2023-11-08 15:43:23,867 INFO  [main] Error message displayed.
-2023-11-08 15:43:24,386 INFO  [main] Page was successfully navigated.
-2023-11-08 15:43:25,210 INFO  [main] Login with invalid credentials was not successful.
-2023-11-08 15:43:25,244 INFO  [main] Error message displayed.
-2023-11-08 15:43:26,858 INFO  [main] Driver is shutting down
-2023-11-08 15:43:32,920 INFO  [main] Initializing WebDriver
-2023-11-08 15:43:35,367 INFO  [main] Home Page navigated
-2023-11-08 15:43:36,592 INFO  [main] Page was successfully navigated.
-2023-11-08 15:43:38,972 INFO  [main] Search page navigated successfully.
-2023-11-08 15:43:39,018 INFO  [main] Search result corresponds with search item.
-2023-11-08 15:43:40,094 INFO  [main] Page was successfully navigated.
-2023-11-08 15:43:41,187 INFO  [main] Search page navigated successfully.
-2023-11-08 15:43:41,209 INFO  [main] Search result corresponds with search item.
-2023-11-08 15:43:42,378 INFO  [main] Page was successfully navigated.
-2023-11-08 15:43:43,708 INFO  [main] Search page navigated successfully.
-2023-11-08 15:43:43,746 INFO  [main] Search result corresponds with search item.
-2023-11-08 15:43:44,912 INFO  [main] Page was successfully navigated.
-2023-11-08 15:43:46,140 INFO  [main] Search page navigated successfully.
-2023-11-08 15:43:46,191 INFO  [main] Search result corresponds with search item.
-2023-11-08 15:43:47,398 INFO  [main] Page was successfully navigated.
-2023-11-08 15:43:48,732 INFO  [main] Search page navigated successfully.
-2023-11-08 15:43:48,764 INFO  [main] Search result corresponds with search item.
-2023-11-08 15:43:50,382 INFO  [main] Driver is shutting down
-2023-11-08 15:43:55,020 INFO  [main] Initializing WebDriver
-2023-11-08 15:43:57,248 INFO  [main] Home Page navigated
-2023-11-08 15:43:58,809 INFO  [main] Page was successfully navigated.
-2023-11-08 15:44:01,105 INFO  [main] Page was successfully navigated.
-2023-11-08 15:44:01,168 INFO  [main] Header verified successfully.
-2023-11-08 15:44:02,833 INFO  [main] Driver is shutting down
-2023-11-08 15:44:07,094 INFO  [main] Initializing WebDriver
-2023-11-08 15:44:09,312 INFO  [main] Home Page navigated
-2023-11-08 15:44:10,480 INFO  [main] Page was successfully navigated.
-2023-11-08 15:44:15,645 INFO  [main] Page was successfully navigated.
-2023-11-08 15:44:15,699 INFO  [main] Card's badge amount correspondes with item/s added.
-2023-11-08 15:44:16,843 INFO  [main] Page was successfully navigated.
-2023-11-08 15:44:17,361 INFO  [main] Item was successfully added to cart.
-2023-11-08 15:44:18,501 INFO  [main] Page was successfully navigated.
-2023-11-08 15:44:21,703 INFO  [main] Page was successfully navigated.
-2023-11-08 15:44:24,246 INFO  [main] Header verified successfully.
-2023-11-08 15:44:25,789 INFO  [main] Driver is shutting down
-2023-11-08 15:44:30,237 INFO  [main] Initializing WebDriver
-2023-11-08 15:44:32,443 INFO  [main] Home Page navigated
-2023-11-08 15:44:33,919 INFO  [main] Page was successfully navigated.
-2023-11-08 15:44:36,147 INFO  [main] Page was successfully navigated.
-2023-11-08 15:44:41,163 INFO  [main] Page was successfully navigated.
-2023-11-08 15:44:44,943 INFO  [main] Page was successfully navigated.
-2023-11-08 15:44:47,895 INFO  [main] Page was successfully navigated.
-2023-11-08 15:44:50,921 INFO  [main] Driver is shutting down
+2023-11-08 15:58:58,342 INFO  [main] Initializing WebDriver
+2023-11-08 15:59:00,479 INFO  [main] Home Page navigated
+2023-11-08 15:59:02,033 INFO  [main] Page was successfully navigated.
+2023-11-08 15:59:04,422 INFO  [main] Page was successfully navigated.
+2023-11-08 15:59:12,185 INFO  [main] Page was successfully navigated.
+2023-11-08 15:59:16,167 INFO  [main] Page was successfully navigated.
+2023-11-08 15:59:16,233 INFO  [main] Header verified successfully.
+2023-11-08 15:59:17,682 INFO  [main] Confirm order clicked.
+2023-11-08 15:59:17,689 INFO  [main] Page was successfully navigated.
+2023-11-08 15:59:17,741 INFO  [main] Header verified successfully.
+2023-11-08 15:59:19,542 INFO  [main] Driver is shutting down
