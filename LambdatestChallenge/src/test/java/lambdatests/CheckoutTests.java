@@ -28,7 +28,7 @@ public class CheckoutTests extends BaseTest {
 
     @Test
     public void checkoutAsLoggedUser_when_validDataProvided() {
-        login();
+        loginPage.login(getMappingByKey("validEmail"), getMappingByKey("validPassword"));
         addItemToCart();
         openCheckoutPage();
         checkoutPage.agreeToPrivacyPolicy();

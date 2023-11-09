@@ -15,7 +15,7 @@ public  class BasePage {
         this.url=url;
     }
 
-    public void navigateToPage(){
+    public void navigate(){
         driver.get(url);
         LOGGER.info("Page was successfully navigated.");
     }

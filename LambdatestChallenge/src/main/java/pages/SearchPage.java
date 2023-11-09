@@ -39,7 +39,7 @@ public class SearchPage extends BasePage {
 
 
     public void verifyCartBadge() {
-        navigateToPage();
+        navigate();
         WebElement cartBadge = driver.findElement(By.xpath("(//span[contains(@class, 'cart-item-total')])[1]"));
         String value = cartBadge.getAttribute("innerText");
         Assertions.assertEquals("1", value, "Cart badge is empty.");
@@ -55,7 +55,7 @@ public class SearchPage extends BasePage {
     }
 
     public void openCart(){
-        navigateToPage();
+        navigate();
         WebElement clickOnCart = driver.findElement(By.xpath("(//div[@class='cart-icon'])[1]"));
         clickOnCart.click();
     }

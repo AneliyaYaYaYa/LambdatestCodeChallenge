@@ -46,7 +46,7 @@ public class BaseTest {
 
     public void addItemToCart(){
         String product = "Nikon D300";
-        homePage.navigateToPage();
+        homePage.navigate();
         homePage.searchForItem(product);
         searchPage.addItemToCart(product);
     }
@@ -56,10 +56,4 @@ public class BaseTest {
         searchPage.checkout();
     }
 
-    public  void login(){
-        loginPage.navigateToPage();
-        loginPage.fillInEmail(getMappingByKey("validEmail"));
-        loginPage.fillInPassword(getMappingByKey("validPassword"));
-        loginPage.clickLoginButton();
-    }
 }

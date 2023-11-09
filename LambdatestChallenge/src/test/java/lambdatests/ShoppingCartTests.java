@@ -11,7 +11,7 @@ public class ShoppingCartTests extends BaseTest {
 
     @Test
     public void productAddedToCart_when_addToCartClicked(){
-        homePage.navigateToPage();
+        homePage.navigate();
         homePage.searchForItem(product);
         searchPage.addItemToCart(product);
         searchPage.verifyCartBadge();
