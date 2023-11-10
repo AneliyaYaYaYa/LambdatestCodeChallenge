@@ -26,6 +26,10 @@ public class LoginPage extends BasePage {
         return driver.findElement(By.xpath("//input[@value='Login']"));
     }
 
+    public WebElement logoutButton() {
+        return driver.findElement(By.xpath("(//a[contains(@href, 'logout')])[2]"));
+    }
+
     public void login(LoginDetails details) {
         emailField().sendKeys(details.getEmail());
         passwordField().sendKeys(details.getPassword());
@@ -52,8 +56,7 @@ public class LoginPage extends BasePage {
     }
 
     public void logout() {
-        WebElement logoutButton = driver.findElement(By.xpath("(//a[contains(@href, 'logout')])[2]"));
-        logoutButton.click();
+        logoutButton().click();
         LOGGER.info("Logout button clicked.");
     }
 

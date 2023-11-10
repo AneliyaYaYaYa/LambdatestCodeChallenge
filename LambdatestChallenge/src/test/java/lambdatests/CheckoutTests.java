@@ -16,7 +16,6 @@ public class CheckoutTests extends BaseTest {
     @Test
     public void checkout_when_validDataProvided() throws InterruptedException {
         addItemToCart(product);
-
         checkoutPage.navigate();
         checkoutPage.checkOut(userTypeGuest);
         checkoutPage.verifyPageNavigated(getMappingByKey("checkoutConfirmPage"));
@@ -31,7 +30,6 @@ public class CheckoutTests extends BaseTest {
     public void checkoutAsLoggedUser_when_validDataProvided() throws InterruptedException {
         login();
         addItemToCart(product);
-
         checkoutPage.navigate();
         checkoutPage.checkOutAsLoggedUser();
         checkoutPage.verifyPageNavigated(getMappingByKey("checkoutConfirmPage"));

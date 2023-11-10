@@ -29,11 +29,21 @@ public class SearchPage extends BasePage {
         LOGGER.info("Search result corresponds with search item.");
     }
 
+    public WebElement findResult(String item) {
+        return driver.findElement(By.xpath(String.format("//h4/a[text()='%s']", item)));
+    }
+
+    public WebElement addToCart() {
+        return driver.findElement(By.xpath("(//button[@title='Add to Cart'])[2]"));
+    }
+
+    public WebElement cartIcon() {
+        return driver.findElement(By.xpath("(//div[@class='cart-icon'])[1]"));
+    }
+
     public void addItemToCart(String item) {
-        WebElement result = driver.findElement(By.xpath(String.format("//h4/a[text()='%s']", item)));
-        result.click();
-        WebElement addToCartButton = driver.findElement(By.xpath("(//button[@title='Add to Cart'])[2]"));
-        addToCartButton.click();
+        findResult(item).click();
+        addToCart().click();
 
     }
 
@@ -55,11 +65,11 @@ public class SearchPage extends BasePage {
 
     public void openCart() {
         navigate();
-        WebElement clickOnCart = driver.findElement(By.xpath("(//div[@class='cart-icon'])[1]"));
-        clickOnCart.click();
+        cartIcon().click();
     }
 
     public void editCart() {
+        openCart();
         WebElement editButton = driver.findElement(By.xpath("//a[contains(@href, 'checkout/cart') and @role='button']"));
         editButton.click();
     }

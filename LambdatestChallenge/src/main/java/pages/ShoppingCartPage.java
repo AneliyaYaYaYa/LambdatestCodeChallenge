@@ -11,9 +11,12 @@ public class ShoppingCartPage extends BasePage {
         super(driver, getMappingByKey("shoppingCartPage"));
     }
 
+    public WebElement removeButton() {
+        return driver.findElement(By.xpath("//button[contains(@onclick, 'cart.remove')]"));
+    }
+
     public void removeItem() {
-        WebElement removeItem = driver.findElement(By.xpath("//button[contains(@onclick, 'cart.remove')]"));
-        removeItem.click();
+        removeButton().click();
     }
 
 }
