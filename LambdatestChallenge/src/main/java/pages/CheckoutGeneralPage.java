@@ -67,19 +67,38 @@ public class CheckoutGeneralPage extends BasePage {
             passwordConfirmField().sendKeys(details.getPasswordConfirmation());
         }
     }
+
+
     public void addBillingDetails(BillingDetails billingDetails) {
         addressField().sendKeys(billingDetails.getAddress());
         cityField().sendKeys(billingDetails.getCity());
         postCodeField().sendKeys(billingDetails.getPostCode());
     }
+
+
+    public WebElement paymentMethod() {
+        return driver.findElement(By.xpath("//div/input[@name='payment_method']/following-sibling::label"));
+    }
+
+    public WebElement shippingMethod() {
+        return driver.findElement(By.xpath("//div/input[@name='shipping_method']/following-sibling::label"));
+    }
+
+    public void agreeToShippingMethod() {
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript("arguments[0].scrollIntoView(true);", shippingMethod());
+        shippingMethod().click();
+    }
+
     public WebElement termsAndConditions() {
         return driver.findElement(By.xpath("//label[@for='input-agree']"));
     }
+
     public WebElement privacyPolicy() {
         return driver.findElement(By.xpath("//label[@for='input-account-agree']"));
     }
+
     public void agreeToTermsAndConditions() {
-       // WebElement termsAndConditions = driver.findElement(By.xpath("//label[@for='input-agree']"));
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].scrollIntoView(true);", termsAndConditions());
         termsAndConditions().click();
@@ -93,10 +112,12 @@ public class CheckoutGeneralPage extends BasePage {
 
     public void checkOut(String userType) {
         userType(userType).click();
-        var personalDetails = DetailsFactory.createUser();//using ony part of reg details?!
+        var personalDetails = DetailsFactory.createUser();
         var billingDetails = DetailsFactory.createBillingDetails();
         addPersonalDetails(personalDetails);
         addBillingDetails(billingDetails);
+        paymentMethod().click();
+        shippingMethod().click();
         agreeToTermsAndConditions();
         if (privacyPolicy().isDisplayed()) {
             privacyPolicy().click();
@@ -104,7 +125,18 @@ public class CheckoutGeneralPage extends BasePage {
         continueButton().click();
     }
 
+    public WebElement billingAddressExisting() {
+        return driver.findElement(By.xpath("//div/input[@id='input-payment-address-existing']/following-sibling::label"));
+    }
+
     public void checkOutAsLoggedUser() {
+        if (telephoneField().getText() == null) {
+            var personalDetails = DetailsFactory.createUser();
+            telephoneField().sendKeys(String.valueOf(personalDetails.getTelephone()));
+        }
+        billingAddressExisting().click();
+        paymentMethod().click();
+        agreeToShippingMethod();
         agreeToTermsAndConditions();
         continueButton().click();
     }

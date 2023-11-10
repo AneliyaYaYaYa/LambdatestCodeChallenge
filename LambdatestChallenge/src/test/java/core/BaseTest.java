@@ -44,7 +44,13 @@ public class BaseTest {
         LOGGER.info("Driver is shutting down");
     }
 
-    public void addItemToCart(String product){
+    public void login() {
+        var loginDetails = DetailsFactory.loginUser();
+        loginPage.navigate();
+        loginPage.login(loginDetails);
+    }
+
+    public void addItemToCart(String product) {
         homePage.navigate();
         homePage.searchForItem(product);
         searchPage.addItemToCart(product);

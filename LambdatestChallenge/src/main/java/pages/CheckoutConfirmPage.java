@@ -6,9 +6,9 @@ import org.openqa.selenium.WebElement;
 
 import static core.Utils.getMappingByKey;
 
-public class CheckoutConfirmPage extends BasePage{
+public class CheckoutConfirmPage extends BasePage {
     public CheckoutConfirmPage(WebDriver driver) {
-        super(driver, getMappingByKey("https://ecommerce-playground.lambdatest.io/index.php?route=extension/maza/checkout/confirm"));
+        super(driver, getMappingByKey("checkoutConfirmPage"));
     }
 
     public WebElement confirmOrder() {
