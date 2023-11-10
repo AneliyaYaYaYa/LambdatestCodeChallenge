@@ -34,7 +34,7 @@ public class BaseTest {
         checkoutPage = new CheckoutGeneralPage(driver);
         checkoutConfirmPage = new CheckoutConfirmPage(driver);
         shoppingCartPage = new ShoppingCartPage(driver);
-        //manage timeouts
+
     }
 
     @AfterAll

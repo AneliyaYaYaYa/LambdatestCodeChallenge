@@ -9,7 +9,7 @@ import static core.Utils.getMappingByKey;
 public class RegistrationTests extends BaseTest {
 
     @Test
-    public void registerUser_when_validaDataProvided() throws InterruptedException {
+    public void registerUser_when_validaDataProvided()  {
         var registrationDetails = DetailsFactory.createUser();
         registrationPage.navigate();
         registrationPage.register(registrationDetails);

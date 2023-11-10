@@ -14,29 +14,29 @@ public class CheckoutTests extends BaseTest {
 
 
     @Test
-    public void checkout_when_validDataProvided() throws InterruptedException {
+    public void checkout_when_validDataProvided() {
         addItemToCart(product);
         checkoutPage.navigate();
         checkoutPage.checkOut(userTypeGuest);
-        checkoutPage.verifyPageNavigated(getMappingByKey("checkoutConfirmPage"));
         checkoutPage.verifyHeader(getMappingByKey("checkout.confirmOrder"));
+        checkoutPage.verifyPageNavigated(getMappingByKey("checkoutConfirmPage"));
         checkoutConfirmPage.confirmOrder().click();
-        checkoutConfirmPage.verifyPageNavigated(getMappingByKey("checkoutSuccessPage"));
         checkoutConfirmPage.verifyHeader(getMappingByKey("checkout.successHeader"));
+        checkoutConfirmPage.verifyPageNavigated(getMappingByKey("checkoutSuccessPage"));
     }
 
 
     @Test
-    public void checkoutAsLoggedUser_when_validDataProvided() throws InterruptedException {
+    public void checkoutAsLoggedUser_when_validDataProvided() {
         login();
         addItemToCart(product);
         checkoutPage.navigate();
         checkoutPage.checkOutAsLoggedUser();
-        checkoutPage.verifyPageNavigated(getMappingByKey("checkoutConfirmPage"));
         checkoutPage.verifyHeader(getMappingByKey("checkout.confirmOrder"));
+        checkoutPage.verifyPageNavigated(getMappingByKey("checkoutConfirmPage"));
         checkoutConfirmPage.confirmOrder().click();
-        checkoutConfirmPage.verifyPageNavigated(getMappingByKey("checkoutSuccessPage"));
         checkoutConfirmPage.verifyHeader(getMappingByKey("checkout.successHeader"));
+        checkoutConfirmPage.verifyPageNavigated(getMappingByKey("checkoutSuccessPage"));
     }
 
 }

@@ -12,7 +12,7 @@ public class LoginTests extends BaseTest {
 
 
     @Test
-    public void login_when_validCredentialsProvided() throws InterruptedException {
+    public void login_when_validCredentialsProvided() {
         var loginDetails = DetailsFactory.loginUser();
         loginPage.navigate();
         loginPage.login(loginDetails);
