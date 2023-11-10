@@ -10,7 +10,7 @@ public class ShoppingCartTests extends BaseTest {
     public String product = getMappingByKey("product");
 
     @Test
-    public void productAddedToCart_when_addToCartClicked(){
+    public void productAddedToCart_when_addToCartClicked() {
         homePage.navigate();
         homePage.searchForItem(product);
         searchPage.addItemToCart(product);
@@ -19,7 +19,7 @@ public class ShoppingCartTests extends BaseTest {
     }
 
     @Test
-    public void removeItemFromCart_when_removeClicked(){
+    public void removeItemFromCart_when_removeClicked() {
         addItemToCart(product);
         searchPage.openCart();
         searchPage.editCart();

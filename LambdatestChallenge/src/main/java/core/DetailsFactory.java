@@ -14,8 +14,6 @@ public class DetailsFactory {
     protected static Faker faker = new Faker();
 
 
-
-
     public static RegistrationDetails createUser() {
         var registrationDetails = new RegistrationDetails();
         registrationDetails.setFirstName(faker.name().firstName());

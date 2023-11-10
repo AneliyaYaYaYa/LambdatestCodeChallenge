@@ -37,13 +37,12 @@ public class SearchPage extends BasePage {
 
     }
 
-
     public void verifyCartBadge() {
         navigate();
         WebElement cartBadge = driver.findElement(By.xpath("(//span[contains(@class, 'cart-item-total')])[1]"));
         String value = cartBadge.getAttribute("innerText");
         Assertions.assertEquals("1", value, "Cart badge is empty.");
-        LOGGER.info("Card's badge amount correspondes with item/s added.");
+        LOGGER.info("Card's badge amount corresponds with item/s added.");
     }
 
     public void verifyItemAddedToCart(String item) {

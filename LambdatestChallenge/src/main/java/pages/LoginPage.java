@@ -14,19 +14,19 @@ public class LoginPage extends BasePage {
     }
 
 
-    public WebElement emailField(){
+    public WebElement emailField() {
         return driver.findElement(By.name("email"));
     }
 
-    public WebElement passwordField(){
+    public WebElement passwordField() {
         return driver.findElement(By.name("password"));
     }
 
-    public WebElement loginButton(){
+    public WebElement loginButton() {
         return driver.findElement(By.xpath("//input[@value='Login']"));
     }
 
-    public void login (LoginDetails details){
+    public void login(LoginDetails details) {
         emailField().sendKeys(details.getEmail());
         passwordField().sendKeys(details.getPassword());
         loginButton().click();
@@ -34,23 +34,24 @@ public class LoginPage extends BasePage {
 
     public void verifyLoginFailed() {
         Boolean display = driver.findElement(By.xpath("//input[@value='Login']")).isDisplayed();
-        if (display){
+        if (display) {
             LOGGER.info("Login with invalid credentials was not successful.");
         } else {
             LOGGER.info("User logged in with invalid credentials.");
         }
     }
 
-    public void errorMessageDisplayed(){
+    public void errorMessageDisplayed() {
         Boolean displayError = driver.findElement(By.xpath("//div[contains(@class, 'alert-danger')]")).isDisplayed();
-        if (displayError){
+        if (displayError) {
             LOGGER.info("Error message displayed.");
         } else {
             LOGGER.info("No error message.");
         }
 
     }
-    public void logout(){
+
+    public void logout() {
         WebElement logoutButton = driver.findElement(By.xpath("(//a[contains(@href, 'logout')])[2]"));
         logoutButton.click();
         LOGGER.info("Logout button clicked.");
