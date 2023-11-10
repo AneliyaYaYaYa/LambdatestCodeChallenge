@@ -1,42 +1,45 @@
 package lambdatests;
 
 import core.BaseTest;
+import core.DetailsFactory;
 import org.junit.jupiter.api.Test;
 
 import static core.Utils.getMappingByKey;
 
 public class CheckoutTests extends BaseTest {
 
-    public String userType = getMappingByKey("userType");
+    public String userTypeGuest = getMappingByKey("userType.guest");
+    public String userTypeRegister = getMappingByKey("userType.registerAccount");
+    public String product = getMappingByKey("product");
 
 
     @Test
-    public void checkoutAsGuest_when_validDataProvided() {
-        addItemToCart();
-        openCheckoutPage();
-        checkoutPage.selectUserType(userType);
-        checkoutPage.fillInPersonalDetails();
-        checkoutPage.fillInBillingDetails();
-        checkoutPage.agreeToPrivacyPolicy();
-        checkoutPage.clickContinue();
+    public void checkout_when_validDataProvided() throws InterruptedException {
+        addItemToCart(product);
+        checkoutPage.navigate();
+        checkoutPage.checkOut(userTypeGuest);
         checkoutPage.verifyPageNavigated(getMappingByKey("checkoutConfirmPage"));
         checkoutPage.verifyHeader(getMappingByKey("checkout.confirmOrder"));
-        checkoutConfirmPage.clickConfirm();
+        checkoutConfirmPage.confirmOrder().click();
         checkoutConfirmPage.verifyPageNavigated(getMappingByKey("checkoutSuccessPage"));
         checkoutConfirmPage.verifyHeader(getMappingByKey("checkout.successHeader"));
     }
 
+
     @Test
-    public void checkoutAsLoggedUser_when_validDataProvided() {
-        loginPage.login(getMappingByKey("validEmail"), getMappingByKey("validPassword"));
-        addItemToCart();
-        openCheckoutPage();
-        checkoutPage.agreeToPrivacyPolicy();
-        checkoutPage.clickContinue();
+    public void checkoutAsLoggedUser_when_validDataProvided() throws InterruptedException {
+        var loginDetails = DetailsFactory.loginUser();
+        loginPage.navigate();
+        loginPage.login(loginDetails);
+        addItemToCart(product);
+        checkoutPage.navigate();
+        checkoutPage.checkOutAsLoggedUser();
         checkoutPage.verifyPageNavigated(getMappingByKey("checkoutConfirmPage"));
         checkoutPage.verifyHeader(getMappingByKey("checkout.confirmOrder"));
-        checkoutConfirmPage.clickConfirm();
+        checkoutConfirmPage.confirmOrder().click();
         checkoutConfirmPage.verifyPageNavigated(getMappingByKey("checkoutSuccessPage"));
         checkoutConfirmPage.verifyHeader(getMappingByKey("checkout.successHeader"));
     }
+
 }
+

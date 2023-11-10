@@ -1,6 +1,7 @@
 package lambdatests;
 
 import core.BaseTest;
+import core.DetailsFactory;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -11,9 +12,10 @@ public class LoginTests extends BaseTest {
 
 
     @Test
-    public void login_when_validCredentialsProvided() {
+    public void login_when_validCredentialsProvided() throws InterruptedException {
+        var loginDetails = DetailsFactory.loginUser();
         loginPage.navigate();
-        loginPage.login(getMappingByKey("validEmail"), getMappingByKey("validPassword"));
+        loginPage.login(loginDetails);
         loginPage.verifyPageNavigated(getMappingByKey("accountPage"));
         loginPage.logout();
     }

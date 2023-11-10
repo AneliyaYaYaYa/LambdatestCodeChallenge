@@ -44,16 +44,11 @@ public class BaseTest {
         LOGGER.info("Driver is shutting down");
     }
 
-    public void addItemToCart(){
-        String product = "Nikon D300";
+    public void addItemToCart(String product){
         homePage.navigate();
         homePage.searchForItem(product);
         searchPage.addItemToCart(product);
     }
 
-    public void openCheckoutPage(){
-        searchPage.openCart();
-        searchPage.checkout();
-    }
 
 }

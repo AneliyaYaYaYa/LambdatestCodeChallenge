@@ -20,7 +20,7 @@ public class ShoppingCartTests extends BaseTest {
 
     @Test
     public void removeItemFromCart_when_removeClicked(){
-        addItemToCart();
+        addItemToCart(product);
         searchPage.openCart();
         searchPage.editCart();
         shoppingCartPage.removeItem();

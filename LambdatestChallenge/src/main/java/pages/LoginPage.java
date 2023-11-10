@@ -1,5 +1,6 @@
 package pages;
 
+import models.LoginDetails;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,9 +26,9 @@ public class LoginPage extends BasePage {
         return driver.findElement(By.xpath("//input[@value='Login']"));
     }
 
-    public void login (String email, String password){
-        emailField().sendKeys(email);
-        passwordField().sendKeys(password);
+    public void login (LoginDetails details){
+        emailField().sendKeys(details.getEmail());
+        passwordField().sendKeys(details.getPassword());
         loginButton().click();
     }
 
