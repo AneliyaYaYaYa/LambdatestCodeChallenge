@@ -12,20 +12,23 @@ public class LoginPage extends BasePage {
         super(driver, getMappingByKey("loginPage"));
     }
 
-    public void fillInEmail(String email){
-        WebElement emailInput = driver.findElement(By.name("email"));
-        emailInput.sendKeys(email);
 
+    public WebElement emailField(){
+        return driver.findElement(By.name("email"));
     }
-    public void fillInPassword(String password) {
-        WebElement passwordInput = driver.findElement(By.name("password"));
-        passwordInput.sendKeys(password);
 
+    public WebElement passwordField(){
+        return driver.findElement(By.name("password"));
     }
-    public void clickLoginButton() {
-        WebElement loginButton = driver.findElement(By.xpath("//input[@value='Login']"));
-        loginButton.click();
 
+    public WebElement loginButton(){
+        return driver.findElement(By.xpath("//input[@value='Login']"));
+    }
+
+    public void login (String email, String password){
+        emailField().sendKeys(email);
+        passwordField().sendKeys(password);
+        loginButton().click();
     }
 
     public void verifyLoginFailed() {

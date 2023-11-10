@@ -12,10 +12,8 @@ public class LoginTests extends BaseTest {
 
     @Test
     public void login_when_validCredentialsProvided() {
-        loginPage.navigateToPage();
-        loginPage.fillInEmail(getMappingByKey("validEmail"));
-        loginPage.fillInPassword(getMappingByKey("validPassword"));
-        loginPage.clickLoginButton();
+        loginPage.navigate();
+        loginPage.login(getMappingByKey("validEmail"), getMappingByKey("validPassword"));
         loginPage.verifyPageNavigated(getMappingByKey("accountPage"));
         loginPage.logout();
     }
@@ -23,10 +21,10 @@ public class LoginTests extends BaseTest {
     @ParameterizedTest
     @CsvSource({"a@abg.com, ''", "a@abg.com, 12345678", "'', 123456", "asLisam@abv.bg, 12345678", "'',''"})
     public void loginFails_when_invalidCredentialsProvided(String email, String password) {
-        loginPage.navigateToPage();
-        loginPage.fillInEmail(email);
-        loginPage.fillInPassword(password);
-        loginPage.clickLoginButton();
+        loginPage.navigate();
+        loginPage.emailField().sendKeys(email);
+        loginPage.passwordField().sendKeys(password);
+        loginPage.loginButton().click();
         loginPage.verifyLoginFailed();
         loginPage.errorMessageDisplayed();
     }

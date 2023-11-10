@@ -1,6 +1,6 @@
-2023-11-09 15:37:22,873 INFO  [main] Initializing WebDriver
-2023-11-09 15:37:25,298 INFO  [main] Home Page navigated
-2023-11-09 15:37:26,780 INFO  [main] Page was successfully navigated.
-2023-11-09 15:37:28,027 INFO  [main] Page was successfully navigated.
-2023-11-09 15:37:28,999 INFO  [main] Logout button clicked.
-2023-11-09 15:37:31,070 INFO  [main] Driver is shutting down
+2023-11-10 10:42:23,723 INFO  [main] Initializing WebDriver
+2023-11-10 10:42:25,986 INFO  [main] Home Page navigated
+2023-11-10 10:42:27,522 INFO  [main] Page was successfully navigated.
+2023-11-10 10:42:29,365 INFO  [main] Page was successfully navigated.
+2023-11-10 10:42:29,439 INFO  [main] Header verified successfully.
+2023-11-10 10:42:31,220 INFO  [main] Driver is shutting down

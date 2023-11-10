@@ -13,12 +13,17 @@ public class HomePage extends BasePage {
         super(driver, getMappingByKey("homePage"));
     }
 
-    public void searchForItem(String item) {
-        WebElement searchField = driver.findElement(By.name("search"));
-        searchField.sendKeys(item);
-        WebElement searchButton = driver.findElement(By.xpath("(//button[@type='submit'])[1]"));
-        searchButton.click();
+    public WebElement searchField() {
+        return driver.findElement(By.name("search"));
+    }
 
+    public WebElement searchButton() {
+        return driver.findElement(By.xpath("(//button[@type='submit'])[1]"));
+    }
+
+    public void searchForItem(String item) {
+        searchField().sendKeys(item);
+        searchButton().click();
     }
 
 }
