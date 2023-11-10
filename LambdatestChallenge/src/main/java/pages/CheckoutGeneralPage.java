@@ -73,12 +73,13 @@ public class CheckoutGeneralPage extends BasePage {
         postCodeField().sendKeys(billingDetails.getPostCode());
     }
     public WebElement termsAndConditions() {
-        return driver.findElement(By.xpath("//label[@for='input-account-agree']"));
+        return driver.findElement(By.xpath("//label[@for='input-agree']"));
     }
     public WebElement privacyPolicy() {
         return driver.findElement(By.xpath("//label[@for='input-account-agree']"));
     }
     public void agreeToTermsAndConditions() {
+       // WebElement termsAndConditions = driver.findElement(By.xpath("//label[@for='input-agree']"));
         JavascriptExecutor executor = (JavascriptExecutor) driver;
         executor.executeScript("arguments[0].scrollIntoView(true);", termsAndConditions());
         termsAndConditions().click();

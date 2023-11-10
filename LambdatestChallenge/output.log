@@ -1,10 +1,12 @@
-2023-11-10 12:05:48,154 INFO  [main] Initializing WebDriver
-2023-11-10 12:05:52,256 INFO  [main] Home Page navigated
-2023-11-10 12:05:53,839 INFO  [main] Page was successfully navigated.
-2023-11-10 12:06:01,353 INFO  [main] Page was successfully navigated.
-2023-11-10 12:06:07,001 INFO  [main] Page was successfully navigated.
-2023-11-10 12:06:24,106 INFO  [main] Page was successfully navigated.
-2023-11-10 12:06:24,657 INFO  [main] Page title verified successfully.
-2023-11-10 12:06:33,967 INFO  [main] Page was successfully navigated.
-2023-11-10 12:06:35,163 INFO  [main] Page title verified successfully.
-2023-11-10 12:06:37,616 INFO  [main] Driver is shutting down
+2023-11-10 12:24:31,784 INFO  [main] Initializing WebDriver
+2023-11-10 12:24:34,544 INFO  [main] Home Page navigated
+2023-11-10 12:24:35,646 INFO  [main] Page was successfully navigated.
+2023-11-10 12:24:41,622 INFO  [main] Page was successfully navigated.
+2023-11-10 12:24:46,614 INFO  [main] Page was successfully navigated.
+2023-11-10 12:24:46,651 INFO  [main] Page title verified successfully.
+2023-11-10 12:24:51,209 INFO  [main] Page was successfully navigated.
+2023-11-10 12:24:51,243 INFO  [main] Page title verified successfully.
+2023-11-10 12:24:52,667 INFO  [main] Page was successfully navigated.
+2023-11-10 12:24:55,190 INFO  [main] Page was successfully navigated.
+2023-11-10 12:24:58,647 INFO  [main] Page was successfully navigated.
+2023-11-10 12:25:04,389 INFO  [main] Driver is shutting down

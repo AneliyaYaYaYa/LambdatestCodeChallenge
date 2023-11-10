@@ -11,13 +11,11 @@ import java.util.Random;
 import static core.Utils.getMappingByKey;
 
 public class RegistrationPage extends BasePage {
-    protected static Faker faker;
-    protected static Random rnd;
+
 
     public RegistrationPage(WebDriver driver) {
         super(driver, getMappingByKey("registerPage"));
-        faker = new Faker();
-        rnd = new Random();
+
     }
 
     public WebElement firstNameField() {
@@ -63,28 +61,4 @@ public class RegistrationPage extends BasePage {
         continueButton().click();
     }
 
-
-    public void fillInFirstName() {
-        String firstName = faker.name().firstName();
-        driver.findElement(By.name("firstname")).sendKeys(firstName);
-    }
-
-    public void fillInLastName() {
-        String lastName = faker.name().lastName();
-        WebElement lastNameInput = driver.findElement(By.name("lastname"));
-        lastNameInput.sendKeys(lastName);
-    }
-
-    public void fillInEmail() {
-        String email = (faker.name().firstName() + "@abc.com").toString();
-        WebElement emailInput = driver.findElement(By.name("email"));
-        emailInput.sendKeys(email);
-    }
-
-    public void fillInTelephone() {
-        int numb = 10000 + rnd.nextInt(900000);
-        String phone = String.valueOf(numb);
-        WebElement telephoneInput = driver.findElement(By.name("telephone"));
-        telephoneInput.sendKeys(phone);
-    }
 }

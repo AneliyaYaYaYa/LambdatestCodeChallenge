@@ -54,19 +54,15 @@ public class SearchPage extends BasePage {
         LOGGER.info("Item was successfully added to cart.");
     }
 
-    public void openCart(){
+    public void openCart() {
         navigate();
         WebElement clickOnCart = driver.findElement(By.xpath("(//div[@class='cart-icon'])[1]"));
         clickOnCart.click();
     }
-    public void editCart(){
+
+    public void editCart() {
         WebElement editButton = driver.findElement(By.xpath("//a[contains(@href, 'checkout/cart') and @role='button']"));
         editButton.click();
     }
-    public void checkout() {
-        WebElement checkoutButton = driver.findElement(By.xpath("//a[contains(@href, 'checkout/checkout')]"));
-        checkoutButton.click();
-    }
-
 
 }
