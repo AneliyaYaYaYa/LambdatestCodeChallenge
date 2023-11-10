@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import static core.Utils.LOGGER;
+import static java.lang.String.format;
 
 public  class BasePage {
     public String url;
@@ -23,11 +24,11 @@ public  class BasePage {
     public void verifyHeader(String message) {
         WebElement successTitle = driver.findElement(By.xpath("//div/h1[contains(@class, 'page-title')]"));
         String value = successTitle.getAttribute("innerText");
-        Assertions.assertEquals(message, value.trim(), "Header title not as expected.");
-       //Assertions.assertTrue(value.contains(message), "Header title not as expected.");
-        LOGGER.info("Header verified successfully.");
+        Assertions.assertEquals(message, value.trim(), format("Header title not as expected. Expected: %s, received: %s", message, value));
+        LOGGER.info("Page title verified successfully.");
     }
-    public void verifyPageNavigated(String expectedUrl) {
+    public void verifyPageNavigated(String expectedUrl) throws InterruptedException {
+        Thread.sleep(2000);
         String actualUrl=driver.getCurrentUrl();
         Assertions.assertEquals(expectedUrl,actualUrl, "Expected page was not navigated.");
         LOGGER.info("Page was successfully navigated.");
